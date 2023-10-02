@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Перелік відеокарт</title>
+</head>
+<body>
+  <h1>Перелік відеокарт</h1>
+  <ul>
+    <% for (let i = 0; i < videoCards.length; i++) { %>
+      <li>
+        <%= videoCards[i].name %> (Память: <%= videoCards[i].memory %>GB, Частота ядра: <%= videoCards[i].clockSpeed %>MHz, Вартість: $<%= videoCards[i].price %>)
+        [<a href="/edit/<%= videoCards[i].rowid %>">Редагувати</a>]
+        [<a href="/delete/<%= videoCards[i].rowid %>">Видалити</a>]
+      </li>
+    <% } %>
+  </ul>
+  <a href="/add">Додати відеокарту</a><br>
+  <a href="/compare">Порівняти відеокарти</a>
+</body>
+</html>

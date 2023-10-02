@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Редагувати параметри відеокарти</title>
+</head>
+<body>
+  <h1>Редагувати параметри відеокарти</h1>
+  <form action="/edit/<%= videoCard.rowid %>" method="post">
+    <label>
+      Назва:
+      <input type="text" name="name" value="<%= videoCard.name %>" required>
+    </label><br>
+    <label>
+      Память (ГБ):
+      <input type="number" name="memory" value="<%= videoCard.memory %>" required>
+    </label><br>
+    <label>
+      Частота ядра (МГц):
+      <input type="number" name="clockSpeed" value="<%= videoCard.clockSpeed %>" required>
+    </label><br>
+    <label>
+      Вартість ($):
+      <input type="number" name="price" value="<%= videoCard.price %>" required>
+    </label><br>
+    <button type="submit">Зберегти</button>
+  </form>
+</body>
+</html>

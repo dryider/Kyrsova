@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Порівняння відеокарт</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .center {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="center">Порівняння відеокарт</h1>
+<form action="/compareResult" method="post">
+    <ul>
+        <% for (let i = 0; i < cardsToCompare.length; i++) { %>
+            <li>
+                <input type="checkbox" name="cardsToCompare" value="<%= cardsToCompare[i].rowid %>">
+                <%= cardsToCompare[i].name %> (Память: <%= cardsToCompare[i].memory %>GB, Частота ядра: <%= cardsToCompare[i].clockSpeed %>MHz, Ціна: $<%= cardsToCompare[i].price %>)
+            </li>
+        <% } %>
+    </ul>
+    <button type="submit">Порівняти</button>
+</form>
+
+
+  <table id="compareTable" style="display: none;">
+    <tr>
+      <th>Назва</th>
+      <th>Пам'ять (GB)</th>
+      <th>Частота ядра (MHz)</th>
+      <th>Ціна ($)</th>
+    </tr>
+    <% for (let i = 0; i < cardsToCompare.length; i++) { %>
+      <tr>
+        <td><%= cardsToCompare[i].name %></td>
+        <td><%= cardsToCompare[i].memory %></td>
+        <td><%= cardsToCompare[i].clockSpeed %></td>
+        <td><%= cardsToCompare[i].price %></td>
+      </tr>
+    <% } %>
+  </table>
+
+  <script>
+    document.getElementById('compareButton').addEventListener('click', function() {
+        var checkboxes = document.querySelectorAll('input[name="selectedCards"]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.style.display = 'none';
+        });
+
+        document.getElementById('compareTable').style.display = 'block';
+    });
+  </script>
+</body>
+</html>

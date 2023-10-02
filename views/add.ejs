@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Додати відеокарту</title>
+</head>
+<body>
+  <h1>Додати відеокарту</h1>
+  <form action="/add" method="post">
+    <label>
+      Назва:
+      <input type="text" name="name" required>
+    </label><br>
+    <label>
+      Память (ГБ):
+      <input type="number" name="memory" required>
+    </label><br>
+    <label>
+      Частота ядра (МГц):
+      <input type="number" name="clockSpeed" required>
+    </label><br>
+    <label>
+      Вартість ($):
+      <input type="number" name="price" required>
+    </label><br>
+    <button type="submit">Додати</button>
+  </form>
+</body>
+</html>
